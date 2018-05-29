@@ -19,6 +19,8 @@ ZSH_THEME="agnoster"
 plugins=(git sublime z git-flow)
 
 source $ZSH/oh-my-zsh.sh
+source /usr/share/fzf/key-bindings.zsh
+source /usr/share/fzf/completion.zsh
 
 # User configuration
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
@@ -41,3 +43,12 @@ else
     alias ls=' colorls'
     alias l=' colorls -la'
 fi
+
+function gi() {
+   curl -L -s https://www.gitignore.io/api/$@
+}
+
+function gifzf() {
+   local list=$(gi list | tr , '\n' | fzf --multi | tr '\n' , | sed 's/,$//' )
+   gi $list
+}
