@@ -66,7 +66,7 @@ echo "OK"
 
 # Install Colorls
 echo "Installing colorls."
-gem install colorls
+sudo gem install colorls
 echo "OK"
 
 # Check and install any remaining software updates.
