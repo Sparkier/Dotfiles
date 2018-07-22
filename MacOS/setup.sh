@@ -31,8 +31,12 @@ xcode_license() {
 xcode_license
 
 # Install Homebrew.
-echo "Installing Homebrew:"
+if brew help > /dev/null; then
+  echo "Brew already installed."
+else
+  echo "Installing Homebrew:"
 /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+fi
 
 echo "Updating Homebrew:"
 brew update
