@@ -50,7 +50,7 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/mas
 echo "OK"
 
 # Shell changed to zsh.
-echo "Changing shell to zsh:"
+echo "Changing shell to zsh:" # TODO: Only when not already zsh!
 chsh -s $(which zsh)
 echo "OK"
 
@@ -65,7 +65,7 @@ cp ./Terminal/zshrc ~/.zshrc
 echo "OK"
 
 # Copy iTerm Profile.
-echo "Copyinf iTerm 2 profile."
+echo "Copying iTerm 2 profile."
 cp Terminal/com.googlecode.iterm2.plist ~/Library/Preferences
 echo "OK"
 
@@ -87,6 +87,6 @@ fi
 
 echo "Your system is now setup!"
 echo "!!!"
-echo "You should change your terminal font now. Unfortunately this is not possible through CLI."
+echo "If the iTerm profile is incorrect, execute the following command:"
+echo "cp Terminal/com.googlecode.iterm2.plist ~/Library/Preferences"
 echo "!!!"
-echo "To do this, open iTerm, open the preferences, go to profiles, text, check 'use different font for non-ASCII text' and select 'Hack Nerd Font' as the 'Non-ASCII Font'."
