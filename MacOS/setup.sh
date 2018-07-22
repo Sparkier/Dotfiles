@@ -1,6 +1,3 @@
-echo "Changing shell to zsh:"
-chsh -s /bin/zsh
-
 # Install the Xcode Command Line Tools.
 if ! [ -f "/Library/Developer/CommandLineTools/usr/bin/git" ] || \
    ! [ -f "/usr/include/iconv.h" ]
@@ -40,15 +37,28 @@ fi
 
 echo "Updating Homebrew:"
 brew update
+echo "OK"
 
 # Install all additional software from brew.
 echo "Installing Brewfile software:"
 brew bundle --file=./Brew/Brewfile
+echo "OK"
+
+# Install oh-my-zsh.
+echo "Installing oh-my-zsh:"
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+echo "OK"
+
+# Shell changed to zsh.
+echo "Changing shell to zsh:"
+chsh -s $(which zsh)
+echo "OK"
 
 # Copy zsh config.
 echo "Changing zsh config:"
 cp ./Terminal/zshrc ~/.zshrc
 source ~/.zshrc
+echo "OK"
 
 # Check and install any remaining software updates.
 echo "Checking for software updates:"
