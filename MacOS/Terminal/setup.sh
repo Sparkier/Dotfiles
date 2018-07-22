@@ -29,3 +29,7 @@ xcode_license() {
   fi
 }
 xcode_license
+
+# Setup Homebrew directory and permissions.
+echo "Installing Homebrew:"
+/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
