@@ -41,7 +41,7 @@ echo "OK"
 
 # Install all additional software from brew.
 echo "Installing Brewfile software:"
-brew bundle --file=./Brew/Brewfile
+brew bundle --file=./Brew/Brewfile --verbose
 echo "OK"
 
 # Install oh-my-zsh.
