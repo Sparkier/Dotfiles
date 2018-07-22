@@ -64,6 +64,11 @@ echo "Copying zsh config:"
 cp ./Terminal/zshrc ~/.zshrc
 echo "OK"
 
+# Copy iTerm Profile.
+echo "Copyinf iTerm 2 profile."
+cp Terminal/com.googlecode.iterm2.plist ~/Library/Preferences
+echo "OK"
+
 # Install Colorls
 echo "Installing colorls."
 sudo gem install colorls
