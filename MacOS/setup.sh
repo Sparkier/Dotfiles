@@ -30,15 +30,21 @@ xcode_license() {
 }
 xcode_license
 
-# Setup Homebrew directory and permissions.
+# Install Homebrew.
 echo "Installing Homebrew:"
 /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 
 echo "Updating Homebrew:"
 brew update
 
+# Install all additional software from brew.
 echo "Installing Brewfile software:"
 brew bundle --file=./Brew/Brewfile
+
+# Copy zsh config.
+echo "Changing zsh config:"
+cp ./Terminal/zshrc ~/.zshrc
+source ~/.zshrc
 
 # Check and install any remaining software updates.
 echo "Checking for software updates:"

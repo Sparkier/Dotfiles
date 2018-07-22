@@ -1,0 +1,64 @@
+# Path to your oh-my-zsh installation.
+export ZSH=/Users/alex/.oh-my-zsh
+# Python Path
+export PYTHONPATH=~/usr/local/bin
+# Node
+export NPM_PACKAGES="$HOME/.npm"
+export PATH="$NPM_PACKAGES/bin:${PATH}"
+# Fastlane
+export PATH="$HOME/.fastlane/bin:$PATH"
+# Default Editor
+export EDITOR=vim
+# VSCode
+export PATH="$PATH:/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
+
+# Name of the theme to load.
+ZSH_THEME="alex"
+
+# Plugins to load
+plugins=(
+  git
+  osx
+  z
+  git-flow
+)
+
+# Personal aliases
+# Editing this file
+alias zc="vim ~/.zshrc"
+alias so="source ~/.zshrc "
+# Navigation
+alias studium="cd ~/Documents/Studium"
+# Remove Directories
+alias rf="rm -rf"	
+# Colorls Aliases
+alias lc='colorls -lA --sd --gs'
+alias ls='colorls'
+
+# FZF: a fuzzy Finder, Finder history etc.
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh && source ~/.zsh-interactive-cd.plugin.zsh
+
+# Test Shell integration for iterm2
+test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
+
+# Get output from gitignore.io.
+function gi() {
+   curl -L -s https://www.gitignore.io/api/$@
+}
+# Make gitignore.io work with FZF.
+function gifzf() {
+   local list=$(gi list | tr , '\n' | fzf --multi | tr '\n' , | sed 's/,$//' )
+   gi $list
+}
+
+function mkcd {
+  if [ ! -n "$1" ]; then
+    echo "Enter a directory name"
+  elif [ -d $1 ]; then
+    echo "\`$1' already exists"
+  else
+    mkdir $1 && cd $1
+  fi
+}
+
+source $ZSH/oh-my-zsh.sh
