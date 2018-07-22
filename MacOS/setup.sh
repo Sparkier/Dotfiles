@@ -81,3 +81,7 @@ else
 fi
 
 echo "Your system is now setup!"
+echo "!!!"
+echo "You should change your terminal font now. Unfortunately this is not possible through CLI."
+echo "!!!"
+echo "To do this, open iTerm, open the preferences, go to profiles, text, check 'use different font for non-ASCII text' and select 'Hack Nerd Font' as the 'Non-ASCII Font'."
