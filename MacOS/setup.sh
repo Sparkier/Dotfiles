@@ -54,6 +54,11 @@ echo "Changing shell to zsh:"
 chsh -s $(which zsh)
 echo "OK"
 
+# Copy zsh Theme.
+echo "Copying zsh theme:"
+cp ./Terminal/alex.zsh-theme ~/.oh-my-zsh/custom/themes
+echo "OK"
+
 # Copy zsh config.
 echo "Changing zsh config:"
 cp ./Terminal/zshrc ~/.zshrc
