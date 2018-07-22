@@ -39,3 +39,16 @@ brew update
 
 echo "Installing Brewfile software:"
 brew bundle --file=./Brew/Brewfile
+
+# Check and install any remaining software updates.
+echo "Checking for software updates:"
+if softwareupdate -l 2>&1 | grep $Q "No new software available."; then
+  echo "OK"
+else
+  echo "Installing software updates:"
+  sudo softwareupdate --install --all
+  xcode_license
+  echo "OK"
+fi
+
+echo "Your system is now setup!"
