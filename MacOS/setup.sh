@@ -60,9 +60,13 @@ cp ./Terminal/alex.zsh-theme ~/.oh-my-zsh/custom/themes
 echo "OK"
 
 # Copy zsh config.
-echo "Changing zsh config:"
+echo "Copying zsh config:"
 cp ./Terminal/zshrc ~/.zshrc
-source ~/.zshrc
+echo "OK"
+
+# Install Colorls
+echo "Installing colorls."
+gem install colorls
 echo "OK"
 
 # Check and install any remaining software updates.

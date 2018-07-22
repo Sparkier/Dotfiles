@@ -4,6 +4,7 @@ cask_args appdir: '/Applications'
 tap 'caskroom/cask'
 tap 'homebrew/core'
 tap 'homebrew/services'
+tap caskroom/fonts
 # install packages
 brew 'python3'
 brew 'ffmpeg'
@@ -24,3 +25,4 @@ cask 'mactex'
 cask 'slack'
 cask 'visual-studio-code'
 cask 'whatsapp'
+cask 'font-hack-nerd-font'
