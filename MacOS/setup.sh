@@ -1,4 +1,4 @@
-echo "Changing shell to zsh."
+echo "Changing shell to zsh:"
 chsh -s /bin/zsh
 
 # Install the Xcode Command Line Tools.
@@ -33,3 +33,9 @@ xcode_license
 # Setup Homebrew directory and permissions.
 echo "Installing Homebrew:"
 /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+
+echo "Updating Homebrew:"
+brew update
+
+echo "Installing Brewfile software:"
+brew bundle /Brew/Brewfile
