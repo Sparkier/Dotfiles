@@ -38,4 +38,4 @@ echo "Updating Homebrew:"
 brew update
 
 echo "Installing Brewfile software:"
-brew bundle /Brew/Brewfile
+brew bundle Brew/Brewfile
