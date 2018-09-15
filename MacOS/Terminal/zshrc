@@ -21,14 +21,13 @@ plugins=(
   osx
   z
   git-flow
+  fzf
 )
 
 # Personal aliases
 # Editing this file
 alias zc="vim ~/.zshrc"
 alias so="source ~/.zshrc "
-# Navigation
-alias studium="cd ~/Documents/Studium"
 # Remove Directories
 alias rf="rm -rf"	
 # Colorls Aliases
