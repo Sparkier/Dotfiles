@@ -35,7 +35,7 @@ alias lc='colorls -lA --sd --gs'
 alias ls='colorls'
 
 # FZF: a fuzzy Finder, Finder history etc.
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh && source ~/.zsh-interactive-cd.plugin.zsh
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh 
 
 # Test Shell integration for iterm2
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"

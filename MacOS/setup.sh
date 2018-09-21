@@ -44,6 +44,10 @@ echo "Installing Brewfile software:"
 brew bundle --file=./Brew/Brewfile --verbose
 echo "OK"
 
+echo "Installing FZF keybindings, this may require your interaction."
+$(brew --prefix)/opt/fzf/install
+echo "OK"
+
 # Install oh-my-zsh.
 echo "Installing oh-my-zsh:"
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
