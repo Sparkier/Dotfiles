@@ -2,7 +2,7 @@
 
 I'm a Ph. D. student at Ulm University. There I use Arch/i3 as my computer setup. When I began with my Ph. D. on machine learning visualization, I was using Ubuntu on my workstation. However, Ubuntu proved to be unstable whilst also not being visually appealing. Therefore I switched to Arch/i3 with a rather minimalistic design which I really learned to like a lot. Tiling window management along with workspaces is a charm to work with.
 
-However, Arch involves a lot of configuration work. These are the configurations for this computer.
+However, Arch involves some configuration work. These are the configurations for this computer.
 
 ## i3
 
@@ -10,4 +10,13 @@ As already mentioned, I use i3 as my window manager. This proved to be a really 
 
 ## Xmodmap
 
-I also wanted to remap my keyboard to - again - kind of match the Mac layout. This was done throug my xprofile and Xmodmap.
+I also wanted to remap my keyboard to kind of match the Mac layout. This was done through my xprofile and Xmodmap.
+
+## Vim
+
+The .vimrc that you can find here was basically copied and modified from a colleague of mine. It has some nice and useful stuff in it along with
+some eyecandy to make more of vim while keeping it relatively simple.
+
+## Terminal
+
+I use the zsh shell along with my own theme for the terminal.
