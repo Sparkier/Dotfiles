@@ -28,3 +28,7 @@ It installs the following software:
 - visual-studio-code
 - whatsapp
 - font-hack-nerd-font
+- clipy
+- fastlane
+- nightowl
+
