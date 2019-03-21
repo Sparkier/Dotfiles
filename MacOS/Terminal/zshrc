@@ -33,6 +33,10 @@ alias rf="rm -rf"
 # Colorls Aliases
 alias lc='colorls -lA --sd --gs'
 alias ls='colorls'
+alias git='LANG=en_US git'
+# Use Brew Vim instead of System Vim
+alias vi='/usr/local/bin/vim'
+alias vim='/usr/local/bin/vim'
 
 # FZF: a fuzzy Finder, Finder history etc.
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh 
@@ -61,3 +65,6 @@ function mkcd {
 }
 
 source $ZSH/oh-my-zsh.sh
+if command -v pyenv 1>/dev/null 2>&1; then
+  eval "$(pyenv init -)"
+fi

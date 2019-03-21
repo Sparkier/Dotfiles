@@ -17,6 +17,7 @@ It installs the following software:
 - cmake
 - ffmpeg
 - zsh
+- vim
 2. Brew Cask
 - iterm2
 - spectacle
