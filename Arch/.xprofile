@@ -3,3 +3,5 @@ setxkbmap -layout de -variant mac
 if [ -s ~/.Xmodmap ]; then
    xmodmap ~/.Xmodmap
 fi
+
+/home/alex/.screenlayout/screens.sh
