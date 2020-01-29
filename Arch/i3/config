@@ -34,6 +34,8 @@ bindsym $mod+Shift+c reload
 bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
+# clipboard manager
+bindsym $mod+Shift+v exec xfce4-popup-clipman
 
 # ===========================================================================================
 # Modes {{{
@@ -187,9 +189,10 @@ bar {
 # ===========================================================================================
 for_window [class="(?i)code"] move container to workspace $ws1
 for_window [class="(?i)firefox"] move container to workspace $ws2
+for_window [class="(?i)chrome"] move container to workspace $ws2
 for_window [class="(?i)terminator"] move container to workspace $ws3
 for_window [class="(?i)slack"] move container to workspace $ws4
-for_window [class="(?i)whatsapp-nativefier"] move container to workspace $ws4
+for_window [class="(?i)whats-app"] move container to workspace $ws4
 for_window [class="(?i)thunderbird"] move container to workspace $ws5
 
 # ===========================================================================================
@@ -210,4 +213,8 @@ exec --no-startup-id code
 exec --no-startup-id slack
 exec --no-startup-id whatsapp-nativefier
 exec --no-startup-id thunderbird
+exec --no-startup-id google-chrome-stable
+exec xfce4-clipman
 
+# mouse scrolling direction
+exec xinput --set-int-prop 10 "libinput Natural Scrolling Enabled" 8 1

@@ -6,15 +6,16 @@ export ZSH=/usr/share/oh-my-zsh
 export NPM_PACKAGES="${HOME}/.npm"
 export PATH="${NPM_PACKAGES}/bin:${PATH}"
 export PATH="/home/alex/.gem/ruby/2.5.0/bin:${PATH}"
+# Pyenv
+if command -v pyenv 1>/dev/null 2>&1; then
+  eval "$(pyenv init -)"
+fi
 
-# Set name of the theme to load. Optionally, if you set this to "random"
-# it'll load a random theme each time that oh-my-zsh is loaded.
-# See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
+# Set name of the theme to load.
 ZSH_THEME="alex"
 
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
-# Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(git z git-flow)
 
@@ -31,8 +32,8 @@ source /usr/share/fzf/completion.zsh
 alias zc="vim ~/.zshrc"
 alias so="source ~/.zshrc"
 alias getssh="cat ~/.ssh/id_rsa.pub"
-alias yc="yaourt -Qdt && yaourt -Scc"
-alias yu="yaourt -Syua"
+alias yc="yay -Qdt && yay -Scc"
+alias yu="yay -Syua"
 alias rf="rm -rf"
 alias lc="colorls -lA --sd --gs"
 alias ls="colorls"
@@ -61,3 +62,4 @@ function mkcd {
     mkdir $1 && cd $1
   fi
 }
+
