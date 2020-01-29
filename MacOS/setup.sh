@@ -60,17 +60,27 @@ echo "OK"
 
 # Copy zsh Theme.
 echo "Copying zsh theme:"
-cp ./Terminal/alex.zsh-theme ~/.oh-my-zsh/custom/themes
+ln -s ./Terminal/alex.zsh-theme ~/.oh-my-zsh/custom/themes/alex.zsh-theme
 echo "OK"
 
 # Copy zsh config.
 echo "Copying zsh config:"
-cp ./Terminal/zshrc ~/.zshrc
+ln -s ./Terminal/zshrc ~/.zshrc
 echo "OK"
 
 # Copy iTerm Profile.
 echo "Copying iTerm 2 profile."
-cp Terminal/com.googlecode.iterm2.plist ~/Library/Preferences
+ln -s ./Terminal/com.googlecode.iterm2.plist ~/Library/Preferences/com.googlecode.iterm2.plist
+echo "OK"
+
+# Copy Hammerspoon Profile.
+echo "Copying Hammerspoon profile."
+ln -s ./Hammerspoon/init.lua ~/.hammerspoon/init.lua
+echo "OK"
+
+# Copy Karabiner Profile.
+echo "Copying Karabiner profile."
+ln -s ./Karabiner/karabiner.json ~/.config/karabiner/karabiner.json
 echo "OK"
 
 # Install Colorls

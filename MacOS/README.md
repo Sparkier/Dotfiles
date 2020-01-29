@@ -13,6 +13,8 @@ What this does:
 1. Copies my zsh theme to ~/.oh-my-zsh/custom/themes
 1. Copies my zsh config to ~/.zshrc
 1. Copies my iTerm2 profile to ~/Library/Preferences
+1. Copies my Hammerspoon profile to ~/.hammerspoon
+1. Copies my Karabiner profile to ~/.config/karabiner
 1. Installs colorls
 1. Checks for software updates
 

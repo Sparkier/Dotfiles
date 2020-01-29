@@ -20,7 +20,7 @@ It installs the following software:
 - vim
 2. Brew Cask
 - iterm2
-- spectacle
+- rectangle
 - dash
 - fork
 - mactex
@@ -31,4 +31,6 @@ It installs the following software:
 - clipy
 - fastlane
 - nightowl
+- hammerspoon
+- karabiner-elements
 
