@@ -11,6 +11,11 @@ export PATH="$HOME/.fastlane/bin:$PATH"
 export EDITOR=vim
 # VSCode
 export PATH="$PATH:/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
+# Needed for some Python modules
+export LC_ALL=en_US.UTF-8
+export LANG=en_US.UTF-8
+# Brew needs this Path
+export PATH="/usr/local/sbin:$PATH"
 
 # Name of the theme to load.
 ZSH_THEME="alex"
@@ -38,15 +43,13 @@ alias git='LANG=en_US git'
 alias vi='/usr/local/bin/vim'
 alias vim='/usr/local/bin/vim'
 
-# FZF: a fuzzy Finder, Finder history etc.
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh 
-
 # Test Shell integration for iterm2
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
 # Get output from gitignore.io.
 function gi() {
    curl -L -s https://www.gitignore.io/api/$@
+
 }
 # Make gitignore.io work with FZF.
 function gifzf() {
@@ -68,3 +71,6 @@ source $ZSH/oh-my-zsh.sh
 if command -v pyenv 1>/dev/null 2>&1; then
   eval "$(pyenv init -)"
 fi
+
+# FZF: a fuzzy Finder, Finder history etc.
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh 
