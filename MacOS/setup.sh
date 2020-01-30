@@ -83,6 +83,12 @@ echo "Copying Karabiner profile."
 ln -s ./Karabiner/karabiner.json ~/.config/karabiner/karabiner.json
 echo "OK"
 
+# Copy Rectangle Profile.
+echo "Copying Rectangle profile."
+rm ~/Library/Preferences/com.knollsoft.Rectangle.plist
+cp ./Rectangle/com.knollsoft.Rectangle.plist ~/Library/Preferences/com.knollsoft.Rectangle.plist
+echo "OK"
+
 # Install Colorls
 echo "Installing colorls."
 sudo gem install colorls
