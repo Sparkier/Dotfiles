@@ -16,6 +16,11 @@ export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
 # Brew needs this Path
 export PATH="/usr/local/sbin:$PATH"
+# For Fastlane to be able to update without sudo: https://docs.fastlane.tools/actions/update_fastlane/
+export GEM_HOME=~/.gems
+export PATH=$PATH:~/.gems/bin
+# Colors correct in tmux
+export TERM=screen-256color
 
 # Name of the theme to load.
 ZSH_THEME="alex"

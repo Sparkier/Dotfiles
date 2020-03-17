@@ -1,4 +1,4 @@
-# AVIT ZSH Theme
+# Alex ZSH Theme
 
 PROMPT='
 $(_current_time) $(_user_host)${_current_dir} $(git_prompt_info) $(_ruby_version)

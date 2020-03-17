@@ -18,19 +18,20 @@ It installs the following software:
 - ffmpeg
 - zsh
 - vim
+- tmux
+- fastlane
 2. Brew Cask
-- iterm2
-- rectangle
+- clipy
 - dash
+- font-hack-nerd-font
 - fork
+- hammerspoon
+- iina
+- iterm2
+- karabiner-elements
 - mactex
+- rectangle
 - slack
 - visual-studio-code
 - whatsapp
-- font-hack-nerd-font
-- clipy
-- fastlane
-- nightowl
-- hammerspoon
-- karabiner-elements
 

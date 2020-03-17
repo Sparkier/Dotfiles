@@ -73,6 +73,11 @@ echo "Copying iTerm 2 profile."
 ln -s ./Terminal/com.googlecode.iterm2.plist ~/Library/Preferences/com.googlecode.iterm2.plist
 echo "OK"
 
+# Copy Tmux Profile.
+echo "Copying Tmus profile."
+ln -s ./Terminal/tmux.conf ~/.tmux.conf
+echo "OK"
+
 # Copy Hammerspoon Profile.
 echo "Copying Hammerspoon profile."
 ln -s ./Hammerspoon/init.lua ~/.hammerspoon/init.lua
