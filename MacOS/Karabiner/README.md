@@ -3,3 +3,4 @@
  them.
  I use it to remap caps to escape if single-pressed, and to hyper if pressed in
  combination with another key.
+ I also do some stuff with my mouse for playing games and remapping buttons.
