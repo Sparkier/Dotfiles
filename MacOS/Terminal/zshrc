@@ -21,6 +21,8 @@ export GEM_HOME=~/.gems
 export PATH=$PATH:~/.gems/bin
 # Colors correct in tmux
 export TERM=screen-256color
+# VI mode in the terminal. ESC for visual, i for insert mode.
+set -o vi
 
 # Name of the theme to load.
 ZSH_THEME="alex"
@@ -79,3 +81,7 @@ fi
 
 # FZF: a fuzzy Finder, Finder history etc.
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh 
+
+
+# added by travis gem
+[ -f /Users/alex/.travis/travis.sh ] && source /Users/alex/.travis/travis.sh
