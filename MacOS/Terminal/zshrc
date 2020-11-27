@@ -85,3 +85,6 @@ fi
 
 # added by travis gem
 [ -f /Users/alex/.travis/travis.sh ] && source /Users/alex/.travis/travis.sh
+
+# shift tab in ls/cs/...
+bindkey '^[[Z' reverse-menu-complete
