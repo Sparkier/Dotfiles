@@ -150,6 +150,77 @@
                             }
                         }
                     ]
+                },
+                {
+                    "disable_built_in_keyboard_if_exists": false,
+                    "fn_function_keys": [],
+                    "identifiers": {
+                        "is_keyboard": false,
+                        "is_pointing_device": true,
+                        "product_id": 6194,
+                        "vendor_id": 4152
+                    },
+                    "ignore": false,
+                    "manipulate_caps_lock_led": false,
+                    "simple_modifications": [
+                        {
+                            "from": {
+                                "pointing_button": "button4"
+                            },
+                            "to": {
+                                "key_code": "left_arrow",
+                                "modifiers": [
+                                    "left_command"
+                                ]
+                            }
+                        },
+                        {
+                            "from": {
+                                "pointing_button": "button5"
+                            },
+                            "to": {
+                                "key_code": "right_arrow",
+                                "modifiers": [
+                                    "left_command"
+                                ]
+                            }
+                        },
+                        {
+                            "from": {
+                                "pointing_button": "button6"
+                            },
+                            "to": {
+                                "key_code": "left_arrow",
+                                "modifiers": [
+                                    "left_control"
+                                ]
+                            }
+                        },
+                        {
+                            "from": {
+                                "pointing_button": "button7"
+                            },
+                            "to": {
+                                "key_code": "right_arrow",
+                                "modifiers": [
+                                    "left_control"
+                                ]
+                            }
+                        }
+                    ]
+                },
+                {
+                    "disable_built_in_keyboard_if_exists": false,
+                    "fn_function_keys": [],
+                    "identifiers": {
+                        "is_keyboard": true,
+                        "is_pointing_device": false,
+                        "product_id": 6194,
+                        "vendor_id": 4152
+                    },
+                    "ignore": false,
+                    "manipulate_caps_lock_led": false,
+                    "simple_modifications": []
                 }
             ],
             "fn_function_keys": [
@@ -343,6 +414,52 @@
                         "is_keyboard": false,
                         "is_pointing_device": true,
                         "product_id": 4969,
+                        "vendor_id": 4152
+                    },
+                    "ignore": false,
+                    "manipulate_caps_lock_led": false,
+                    "simple_modifications": [
+                        {
+                            "from": {
+                                "pointing_button": "button4"
+                            },
+                            "to": {
+                                "key_code": "1"
+                            }
+                        },
+                        {
+                            "from": {
+                                "pointing_button": "button5"
+                            },
+                            "to": {
+                                "key_code": "2"
+                            }
+                        },
+                        {
+                            "from": {
+                                "pointing_button": "button6"
+                            },
+                            "to": {
+                                "key_code": "3"
+                            }
+                        },
+                        {
+                            "from": {
+                                "pointing_button": "button7"
+                            },
+                            "to": {
+                                "key_code": "4"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "disable_built_in_keyboard_if_exists": false,
+                    "fn_function_keys": [],
+                    "identifiers": {
+                        "is_keyboard": false,
+                        "is_pointing_device": true,
+                        "product_id": 6194,
                         "vendor_id": 4152
                     },
                     "ignore": false,
