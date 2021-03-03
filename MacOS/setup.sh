@@ -88,6 +88,11 @@ echo "Copying Karabiner profile."
 ln -s ./Karabiner/karabiner.json ~/.config/karabiner/karabiner.json
 echo "OK"
 
+# Copy vim config.
+echo "Copying vim config."
+ln -s ./Vim/vimrc ~/.vimrc
+echo "OK"
+
 # Copy Rectangle Profile.
 echo "Copying Rectangle profile."
 rm ~/Library/Preferences/com.knollsoft.Rectangle.plist
