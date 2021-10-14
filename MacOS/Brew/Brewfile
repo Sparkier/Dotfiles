@@ -19,6 +19,7 @@ brew 'zsh'
 brew 'vim'
 brew 'tmux'
 brew 'fastlane'
+brew 'zsh-history-substring-search'
 # casks
 cask 'clipy'
 cask 'dash'
