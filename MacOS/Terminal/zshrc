@@ -30,7 +30,7 @@ ZSH_THEME="alex"
 # Plugins to load
 plugins=(
   git
-  osx
+  macos
   z
   git-flow
   fzf

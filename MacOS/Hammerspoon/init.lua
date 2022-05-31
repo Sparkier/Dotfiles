@@ -24,3 +24,7 @@ hs.hotkey.bind(hyper, "5", function()
   hs.application.launchOrFocus('Mail')
 end)
 
+-- Paste My Bosses Name
+hs.hotkey.bind(hyper, "d", function()
+  hs.eventtap.keyStrokes("Çağatay")
+end)
