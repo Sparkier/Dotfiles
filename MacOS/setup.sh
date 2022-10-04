@@ -32,8 +32,13 @@ if brew help > /dev/null; then
   echo "Brew already installed."
 else
   echo "Installing Homebrew:"
-/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 fi
+
+echo "Linking Homebrew:"
+echo '# Set PATH, MANPATH, etc., for Homebrew.' >> /Users/alex/.zprofile
+echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> /Users/alex/.zprofile
+eval "$(/opt/homebrew/bin/brew shellenv)"
 
 echo "Updating Homebrew:"
 brew update
@@ -60,43 +65,43 @@ echo "OK"
 
 # Copy zsh Theme.
 echo "Copying zsh theme:"
-ln -s ./Terminal/alex.zsh-theme ~/.oh-my-zsh/custom/themes/alex.zsh-theme
+ln -s $PWD/Terminal/alex.zsh-theme ~/.oh-my-zsh/custom/themes/alex.zsh-theme
 echo "OK"
 
 # Copy zsh config.
 echo "Copying zsh config:"
-ln -s ./Terminal/zshrc ~/.zshrc
+ln -s $PWD/Terminal/zshrc ~/.zshrc
 echo "OK"
 
 # Copy iTerm Profile.
 echo "Copying iTerm 2 profile."
-ln -s ./Terminal/com.googlecode.iterm2.plist ~/Library/Preferences/com.googlecode.iterm2.plist
+ln -s $PWD/Terminal/com.googlecode.iterm2.plist ~/Library/Preferences/com.googlecode.iterm2.plist
 echo "OK"
 
 # Copy Tmux Profile.
-echo "Copying Tmus profile."
-ln -s ./Terminal/tmux.conf ~/.tmux.conf
+echo "Copying Tmux profile."
+ln -s $PWD/Terminal/tmux.conf ~/.tmux.conf
 echo "OK"
 
 # Copy Hammerspoon Profile.
 echo "Copying Hammerspoon profile."
-ln -s ./Hammerspoon/init.lua ~/.hammerspoon/init.lua
+ln -s $PWD/Hammerspoon/init.lua ~/.hammerspoon/init.lua
 echo "OK"
 
 # Copy Karabiner Profile.
 echo "Copying Karabiner profile."
-ln -s ./Karabiner/karabiner.json ~/.config/karabiner/karabiner.json
+ln -s $PWD/Karabiner/karabiner.json ~/.config/karabiner/karabiner.json
 echo "OK"
 
 # Copy vim config.
 echo "Copying vim config."
-ln -s ./Vim/vimrc ~/.vimrc
+ln -s $PWD/Vim/vimrc ~/.vimrc
 echo "OK"
 
 # Copy Rectangle Profile.
 echo "Copying Rectangle profile."
 rm ~/Library/Preferences/com.knollsoft.Rectangle.plist
-cp ./Rectangle/com.knollsoft.Rectangle.plist ~/Library/Preferences/com.knollsoft.Rectangle.plist
+cp $PWD/Rectangle/com.knollsoft.Rectangle.plist ~/Library/Preferences/com.knollsoft.Rectangle.plist
 echo "OK"
 
 # Install Colorls

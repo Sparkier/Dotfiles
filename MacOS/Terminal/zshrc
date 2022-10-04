@@ -47,8 +47,8 @@ alias lc='colorls -lA --sd --gs'
 alias ls='colorls'
 alias git='LANG=en_US git'
 # Use Brew Vim instead of System Vim
-alias vi='/usr/local/bin/vim'
-alias vim='/usr/local/bin/vim'
+alias vi='/opt/homebrew/bin/vim'
+alias vim='/opt/homebrew/bin/vim'
 
 # Test Shell integration for iterm2
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
@@ -92,7 +92,7 @@ export PATH="/usr/local/opt/node@14/bin:$PATH"
 
 # fixes the up and down arrow based search so that it does not bug out after
 # first blank
-source /usr/local/share/zsh-history-substring-search/zsh-history-substring-search.zsh
+source /opt/homebrew/share/zsh-history-substring-search/zsh-history-substring-search.zsh
 bindkey '^[[A' history-substring-search-up
 bindkey '^[[B' history-substring-search-down
 
