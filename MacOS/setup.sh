@@ -120,6 +120,9 @@ else
   echo "OK"
 fi
 
+git config --global user.name "Alex Bäuerle"
+git config --global user.email alex@a13x.io
+
 echo "Your system is now setup!"
 echo "!!!"
 echo "If the iTerm profile is incorrect, execute the following command:"
