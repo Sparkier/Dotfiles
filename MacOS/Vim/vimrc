@@ -66,8 +66,6 @@ set showmatch
 set wildmenu
 " min 5 lines at top and bottom
 set scrolloff=5
-" set antialias
-set antialias
 " use tabs
 set switchbuf=usetab
 " make Vim run moar smooth
@@ -91,7 +89,11 @@ set nobackup
 " auto read file when a file is changed from outside
 set autoread
 " normal OS clipboard interaction
-set clipboard=unnamed
+if !has('nvim')
+  set clipboard=unnamed
+else
+  set clipboard=unnamedplus
+endif
 "
 " ######## NerdTreeTabs########################################################
 " Open NERDTree on console vim startup if directory given as startup argument.
@@ -130,7 +132,10 @@ set undolevels=1000
 " maximum number lines to save for undo on a buffer reload
 set undoreload=10000
 set undodir=~/.vim/undodir//
-set viminfo+=n~/.vim/viminfo
+if !has('nvim')
+  set viminfo+=n~/.vim/viminfo
+endif
+
 
 " =============================================================================
 " {{{ MY BUNDELS
