@@ -83,6 +83,11 @@ echo "Copying Tmux profile."
 ln -s $PWD/Terminal/tmux.conf ~/.tmux.conf
 echo "OK"
 
+# Copy launch temix script
+echo "Copying launch tmux script."
+ln -s $PWD/Terminal/launch.sh ~/.launch.sh
+echo "OK"
+
 # Copy Hammerspoon Profile.
 echo "Copying Hammerspoon profile."
 ln -s $PWD/Hammerspoon/init.lua ~/.hammerspoon/init.lua

@@ -1,7 +1,6 @@
 # specify a directory to install
 cask_args appdir: '/Applications'
 # add taps
-tap 'homebrew/core'
 tap 'homebrew/services'
 tap 'homebrew/cask-fonts'
 # install packages
@@ -20,12 +19,12 @@ brew 'pyenv'
 brew 'pyenv-virtualenv'
 brew 'commitizen'
 # casks
-cask 'clipy'
+cask 'maccy'
 cask 'font-hack-nerd-font'
 cask 'fork'
 cask 'hammerspoon'
 cask 'iina'
-cask 'iterm2'
+cask 'ghostty'
 cask 'karabiner-elements'
 cask 'mactex'
 cask 'rectangle'
