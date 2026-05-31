@@ -53,10 +53,22 @@ echo "Installing FZF keybindings, this may require your interaction."
 $(brew --prefix)/opt/fzf/install
 echo "OK"
 
-# Install oh-my-zsh.
+# Install oh-my-zsh securely.
 echo "Installing oh-my-zsh:"
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
-echo "OK"
+OH_MY_ZSH_INSTALL_SCRIPT=$(mktemp)
+curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/c86ba78e2ff5c5a3e9282a84c0cc220dd3d5f253/tools/install.sh -o "$OH_MY_ZSH_INSTALL_SCRIPT"
+EXPECTED_SHA="21043aec5b791ce4835479dc33ba2f92155946aeafd54604a8c83522627cc803"
+ACTUAL_SHA=$(shasum -a 256 "$OH_MY_ZSH_INSTALL_SCRIPT" | awk '{print $1}')
+
+if [ "$EXPECTED_SHA" = "$ACTUAL_SHA" ]; then
+  sh "$OH_MY_ZSH_INSTALL_SCRIPT" --unattended
+  echo "OK"
+else
+  echo "ERROR: Checksum mismatch for oh-my-zsh install script. Expected: $EXPECTED_SHA, Actual: $ACTUAL_SHA"
+  rm "$OH_MY_ZSH_INSTALL_SCRIPT"
+  exit 1
+fi
+rm "$OH_MY_ZSH_INSTALL_SCRIPT"
 
 # Shell changed to zsh.
 echo "Changing shell to zsh:" # TODO: Only when not already zsh!
