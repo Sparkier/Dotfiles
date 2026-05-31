@@ -59,9 +59,11 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/mas
 echo "OK"
 
 # Shell changed to zsh.
-echo "Changing shell to zsh:" # TODO: Only when not already zsh!
-chsh -s $(which zsh)
-echo "OK"
+if [ "$SHELL" != "/bin/zsh" ] && [ "$SHELL" != "$(which zsh)" ]; then
+  echo "Changing shell to zsh:"
+  chsh -s $(which zsh)
+  echo "OK"
+fi
 
 # Copy zsh Theme.
 echo "Copying zsh theme:"
