@@ -64,7 +64,7 @@ echo "Installing FZF keybindings, this may require your interaction."
 $(brew --prefix)/opt/fzf/install
 echo "OK"
 
-# Install oh-my-zsh.
+# Install oh-my-zsh securely.
 echo "Installing oh-my-zsh:"
   OMZ_SCRIPT_URL="https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/c86ba78e2ff5c5a3e9282a84c0cc220dd3d5f253/tools/install.sh"
   OMZ_SCRIPT_HASH="21043aec5b791ce4835479dc33ba2f92155946aeafd54604a8c83522627cc803"
@@ -81,9 +81,11 @@ echo "Installing oh-my-zsh:"
 echo "OK"
 
 # Shell changed to zsh.
-echo "Changing shell to zsh:" # TODO: Only when not already zsh!
-chsh -s $(which zsh)
-echo "OK"
+if [ "$SHELL" != "/bin/zsh" ] && [ "$SHELL" != "$(which zsh)" ]; then
+  echo "Changing shell to zsh:"
+  chsh -s $(which zsh)
+  echo "OK"
+fi
 
 # Copy zsh Theme.
 echo "Copying zsh theme:"
