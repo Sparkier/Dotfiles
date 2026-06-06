@@ -32,7 +32,18 @@ if brew help > /dev/null; then
   echo "Brew already installed."
 else
   echo "Installing Homebrew:"
-/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+  HOMEBREW_SCRIPT_URL="https://raw.githubusercontent.com/Homebrew/install/280cbc9adffcbdef15dd1c9d991ef2d1dd7cfc9c/install.sh"
+  HOMEBREW_SCRIPT_HASH="f3e91784ffeda32bc397de7acc1154724cc47522a459c9ac656cca176eeba457"
+  TMP_SCRIPT=$(mktemp)
+  curl -fsSL "$HOMEBREW_SCRIPT_URL" -o "$TMP_SCRIPT"
+  if echo "$HOMEBREW_SCRIPT_HASH  $TMP_SCRIPT" | shasum -a 256 -c - > /dev/null; then
+    /bin/bash "$TMP_SCRIPT"
+  else
+    echo "Error: Homebrew install script hash mismatch!"
+    rm -f "$TMP_SCRIPT"
+    exit 1
+  fi
+  rm -f "$TMP_SCRIPT"
 fi
 
 echo "Linking Homebrew:"
@@ -55,20 +66,19 @@ echo "OK"
 
 # Install oh-my-zsh securely.
 echo "Installing oh-my-zsh:"
-OH_MY_ZSH_INSTALL_SCRIPT=$(mktemp)
-curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/c86ba78e2ff5c5a3e9282a84c0cc220dd3d5f253/tools/install.sh -o "$OH_MY_ZSH_INSTALL_SCRIPT"
-EXPECTED_SHA="21043aec5b791ce4835479dc33ba2f92155946aeafd54604a8c83522627cc803"
-ACTUAL_SHA=$(shasum -a 256 "$OH_MY_ZSH_INSTALL_SCRIPT" | awk '{print $1}')
-
-if [ "$EXPECTED_SHA" = "$ACTUAL_SHA" ]; then
-  sh "$OH_MY_ZSH_INSTALL_SCRIPT" --unattended
-  echo "OK"
-else
-  echo "ERROR: Checksum mismatch for oh-my-zsh install script. Expected: $EXPECTED_SHA, Actual: $ACTUAL_SHA"
-  rm "$OH_MY_ZSH_INSTALL_SCRIPT"
-  exit 1
-fi
-rm "$OH_MY_ZSH_INSTALL_SCRIPT"
+  OMZ_SCRIPT_URL="https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/c86ba78e2ff5c5a3e9282a84c0cc220dd3d5f253/tools/install.sh"
+  OMZ_SCRIPT_HASH="21043aec5b791ce4835479dc33ba2f92155946aeafd54604a8c83522627cc803"
+  TMP_SCRIPT=$(mktemp)
+  curl -fsSL "$OMZ_SCRIPT_URL" -o "$TMP_SCRIPT"
+  if echo "$OMZ_SCRIPT_HASH  $TMP_SCRIPT" | shasum -a 256 -c - > /dev/null; then
+    sh "$TMP_SCRIPT"
+  else
+    echo "Error: Oh-My-Zsh install script hash mismatch!"
+    rm -f "$TMP_SCRIPT"
+    exit 1
+  fi
+  rm -f "$TMP_SCRIPT"
+echo "OK"
 
 # Shell changed to zsh.
 if [ "$SHELL" != "/bin/zsh" ] && [ "$SHELL" != "$(which zsh)" ]; then
