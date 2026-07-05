@@ -81,9 +81,10 @@ echo "Installing oh-my-zsh:"
 echo "OK"
 
 # Shell changed to zsh.
-if [ "$SHELL" != "/bin/zsh" ] && [ "$SHELL" != "$(which zsh)" ]; then
+ZSH_PATH=$(which zsh)
+if [ "$SHELL" != "/bin/zsh" ] && [ "$SHELL" != "$ZSH_PATH" ]; then
   echo "Changing shell to zsh:"
-  chsh -s $(which zsh)
+  chsh -s "$ZSH_PATH"
   echo "OK"
 fi
 
