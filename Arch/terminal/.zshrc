@@ -43,7 +43,7 @@ alias l=lc
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 function gi() {
-   curl -L -s https://www.gitignore.io/api/$@
+   curl -L -s "https://www.gitignore.io/api/$*"
 }
 
 # Use FZF for generating a gitignore file.
