@@ -28,7 +28,7 @@ xcode_license() {
 xcode_license
 
 # Install Homebrew.
-if brew help > /dev/null; then
+if command -v brew > /dev/null; then
   echo "Brew already installed."
 else
   echo "Installing Homebrew:"
