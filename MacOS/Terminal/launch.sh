@@ -1,15 +1,6 @@
 #!/bin/bash
 SESSION_NAME="default"
 
-# Check if the session already exists
-/opt/homebrew/bin/tmux has-session -t $SESSION_NAME 2>/dev/null
-
-if [ $? -eq 0 ]; then
-# If the session exists, reattach to it
-  /opt/homebrew/bin/tmux attach -t $SESSION_NAME
-else
-# If the session doesn't exist, start a new one
-  /opt/homebrew/bin/tmux new -s $SESSION_NAME -d
-  /opt/homebrew/bin/tmux attach -t $SESSION_NAME
-fi
+# Create a new session or attach to an existing one
+/opt/homebrew/bin/tmux new-session -A -s $SESSION_NAME
 

@@ -43,7 +43,7 @@ alias l=lc
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 function gi() {
-   curl -L -s https://www.gitignore.io/api/$@
+   curl -L -s "https://www.gitignore.io/api/$*"
 }
 
 # Use FZF for generating a gitignore file.
@@ -56,10 +56,10 @@ function gifzf() {
 function mkcd {
   if [ ! -n "$1" ]; then
     echo "Enter a directory name"
-  elif [ -d $1 ]; then
+  elif [ -d "$1" ]; then
     echo "\`$1' already exists"
   else
-    mkdir $1 && cd $1
+    mkdir "$1" && cd "$1"
   fi
 }
 

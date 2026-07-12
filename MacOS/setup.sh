@@ -19,7 +19,7 @@ fi
 
 # Check if the Xcode license is agreed to and agree if not.
 xcode_license() {
-  if /usr/bin/xcrun clang 2>&1 | grep $Q license; then
+  if /usr/bin/xcrun clang 2>&1 | grep -q license; then
     echo "Asking for Xcode license confirmation:"
     sudo xcodebuild -license
     echo "OK"
@@ -28,11 +28,22 @@ xcode_license() {
 xcode_license
 
 # Install Homebrew.
-if brew help > /dev/null; then
+if command -v brew > /dev/null; then
   echo "Brew already installed."
 else
   echo "Installing Homebrew:"
-/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+  HOMEBREW_SCRIPT_URL="https://raw.githubusercontent.com/Homebrew/install/280cbc9adffcbdef15dd1c9d991ef2d1dd7cfc9c/install.sh"
+  HOMEBREW_SCRIPT_HASH="f3e91784ffeda32bc397de7acc1154724cc47522a459c9ac656cca176eeba457"
+  TMP_SCRIPT=$(mktemp)
+  curl -fsSL "$HOMEBREW_SCRIPT_URL" -o "$TMP_SCRIPT"
+  if echo "$HOMEBREW_SCRIPT_HASH  $TMP_SCRIPT" | shasum -a 256 -c - > /dev/null; then
+    /bin/bash "$TMP_SCRIPT"
+  else
+    echo "Error: Homebrew install script hash mismatch!"
+    rm -f "$TMP_SCRIPT"
+    exit 1
+  fi
+  rm -f "$TMP_SCRIPT"
 fi
 
 echo "Linking Homebrew:"
@@ -53,15 +64,29 @@ echo "Installing FZF keybindings, this may require your interaction."
 $(brew --prefix)/opt/fzf/install
 echo "OK"
 
-# Install oh-my-zsh.
+# Install oh-my-zsh securely.
 echo "Installing oh-my-zsh:"
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+  OMZ_SCRIPT_URL="https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/c86ba78e2ff5c5a3e9282a84c0cc220dd3d5f253/tools/install.sh"
+  OMZ_SCRIPT_HASH="21043aec5b791ce4835479dc33ba2f92155946aeafd54604a8c83522627cc803"
+  TMP_SCRIPT=$(mktemp)
+  curl -fsSL "$OMZ_SCRIPT_URL" -o "$TMP_SCRIPT"
+  if echo "$OMZ_SCRIPT_HASH  $TMP_SCRIPT" | shasum -a 256 -c - > /dev/null; then
+    sh "$TMP_SCRIPT"
+  else
+    echo "Error: Oh-My-Zsh install script hash mismatch!"
+    rm -f "$TMP_SCRIPT"
+    exit 1
+  fi
+  rm -f "$TMP_SCRIPT"
 echo "OK"
 
 # Shell changed to zsh.
-echo "Changing shell to zsh:" # TODO: Only when not already zsh!
-chsh -s $(which zsh)
-echo "OK"
+ZSH_PATH=$(which zsh)
+if [ "$SHELL" != "/bin/zsh" ] && [ "$SHELL" != "$ZSH_PATH" ]; then
+  echo "Changing shell to zsh:"
+  chsh -s "$ZSH_PATH"
+  echo "OK"
+fi
 
 # Copy zsh Theme.
 echo "Copying zsh theme:"
@@ -111,12 +136,12 @@ echo "OK"
 
 # Install Colorls
 echo "Installing colorls."
-sudo gem install colorls
+gem install --user-install colorls
 echo "OK"
 
 # Check and install any remaining software updates.
 echo "Checking for software updates:"
-if softwareupdate -l 2>&1 | grep $Q "No new software available."; then
+if softwareupdate -l 2>&1 | grep -q "No new software available."; then
   echo "OK"
 else
   echo "Installing software updates:"
