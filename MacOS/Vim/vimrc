@@ -111,7 +111,7 @@ nnoremap Y yg_
 nnoremap go o<Esc>k
 nnoremap gO O<Esc>j
 " save as sudo
-cabbrev w!! w !sudo tee % > /dev/null %
+cabbrev w!! w !sudo tee %:S > /dev/null %:S
 " source vimrc
 cabbrev so :source ~/.vimrc
 " turn off hightlighting on backspace
