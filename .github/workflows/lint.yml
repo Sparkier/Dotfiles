@@ -1,0 +1,39 @@
+name: lint
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install tooling
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y shellcheck zsh lua5.4 jq
+
+      - name: Shellcheck shell scripts
+        run: |
+          # Gate on genuine syntax/parse errors, not style nits.
+          # setup.sh has no shebang, so tell shellcheck it's bash.
+          shellcheck -S error -s bash MacOS/setup.sh
+          shellcheck -S error MacOS/Terminal/launch.sh
+
+      - name: Syntax-check zsh configs
+        run: |
+          zsh -n MacOS/Terminal/zshrc
+          zsh -n MacOS/Terminal/alex.zsh-theme
+          zsh -n Arch/terminal/.zshrc
+          zsh -n Arch/terminal/alex.zsh-theme
+
+      - name: Syntax-check Lua
+        run: luac5.4 -p MacOS/Hammerspoon/init.lua
+
+      - name: Syntax-check Python
+        run: python3 -m py_compile Arch/i3/i3status_primary.py
+
+      - name: Validate JSON
+        run: jq empty MacOS/Karabiner/karabiner.json
