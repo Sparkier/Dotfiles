@@ -130,7 +130,7 @@ echo "OK"
 
 # Copy Rectangle Profile.
 echo "Copying Rectangle profile."
-rm ~/Library/Preferences/com.knollsoft.Rectangle.plist
+rm -f ~/Library/Preferences/com.knollsoft.Rectangle.plist
 cp $PWD/Rectangle/com.knollsoft.Rectangle.plist ~/Library/Preferences/com.knollsoft.Rectangle.plist
 echo "OK"
 
