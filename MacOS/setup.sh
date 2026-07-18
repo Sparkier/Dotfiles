@@ -47,8 +47,8 @@ else
 fi
 
 echo "Linking Homebrew:"
-echo '# Set PATH, MANPATH, etc., for Homebrew.' >> /Users/alex/.zprofile
-echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> /Users/alex/.zprofile
+echo '# Set PATH, MANPATH, etc., for Homebrew.' >> "$HOME/.zprofile"
+echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> "$HOME/.zprofile"
 eval "$(/opt/homebrew/bin/brew shellenv)"
 
 echo "Updating Homebrew:"
@@ -130,7 +130,7 @@ echo "OK"
 
 # Copy Rectangle Profile.
 echo "Copying Rectangle profile."
-rm ~/Library/Preferences/com.knollsoft.Rectangle.plist
+rm -f ~/Library/Preferences/com.knollsoft.Rectangle.plist
 cp $PWD/Rectangle/com.knollsoft.Rectangle.plist ~/Library/Preferences/com.knollsoft.Rectangle.plist
 echo "OK"
 
