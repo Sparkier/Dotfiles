@@ -52,8 +52,13 @@ test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell
 
 # Get output from gitignore.io.
 function gi() {
-   curl -L -s "https://www.gitignore.io/api/$*"
-
+   local IFS=","
+   local list="$*"
+   if [[ ! "$list" =~ ^[a-zA-Z0-9_\+,\-]+$ ]] && [[ -n "$list" ]]; then
+     echo "Error: Invalid characters in gitignore list."
+     return 1
+   fi
+   curl -L -s "https://www.gitignore.io/api/$list"
 }
 # Make gitignore.io work with FZF.
 function gifzf() {
