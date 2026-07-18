@@ -91,6 +91,7 @@ export PATH="/usr/local/opt/node@14/bin:$PATH"
 
 # fixes the up and down arrow based search so that it does not bug out after
 # first blank
+export HISTORY_SUBSTRING_SEARCH_ENSURE_UNIQUE=1
 source /opt/homebrew/share/zsh-history-substring-search/zsh-history-substring-search.zsh
 bindkey '^[[A' history-substring-search-up
 bindkey '^[[B' history-substring-search-down
