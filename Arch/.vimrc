@@ -131,8 +131,8 @@ set viminfo+=n~/.vim/viminfo
 " install plug if not installed
 if empty(glob('~/.vim/autoload/plug.vim'))
   silent !mkdir -p ~/.vim/autoload
-  silent !curl -fLo ~/.vim/autoload/plug.vim
-    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  silent !curl -sLo ~/.vim/autoload/plug.tmp https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  silent !if echo "7e2b20cd909da9c456498684c98f03c63829170f01e34595dd8e1818a217d37c  $HOME/.vim/autoload/plug.tmp" | sha256sum -c - >/dev/null 2>&1 || echo "7e2b20cd909da9c456498684c98f03c63829170f01e34595dd8e1818a217d37c  $HOME/.vim/autoload/plug.tmp" | shasum -a 256 -c - >/dev/null 2>&1; then mv ~/.vim/autoload/plug.tmp ~/.vim/autoload/plug.vim; else rm -f ~/.vim/autoload/plug.tmp; echo "Checksum mismatch for plug.vim"; fi
   autocmd VimEnter * PlugInstall
 endif
 
