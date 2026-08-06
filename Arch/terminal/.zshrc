@@ -43,7 +43,13 @@ alias l=lc
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 function gi() {
-   curl -L -s "https://www.gitignore.io/api/$*"
+   local IFS=","
+   local list="$*"
+   if [[ ! "$list" =~ ^[a-zA-Z0-9_\+,\-]+$ ]] && [[ -n "$list" ]]; then
+     echo "Error: Invalid characters in gitignore list."
+     return 1
+   fi
+   curl -L -s "https://www.gitignore.io/api/$list"
 }
 
 # Use FZF for generating a gitignore file.
